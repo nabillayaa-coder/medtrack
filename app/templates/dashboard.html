@@ -3,8 +3,40 @@
 
 {% block content %}
 <div class="dashboard">
-  <h1>Welcome to MedTrack! 💊</h1>
-  <p>You are logged in.</p>
-  <a href="/logout">Logout</a>
+  <div class="dashboard-header">
+    <div>
+      <h1 class="page-title">Hello, <span class="highlight">{{ user.username }}</span> 👋</h1>
+      <p class="page-sub">Here are your active medications.</p>
+    </div>
+    <a href="/medications/add" class="btn btn-primary">+ Add Medication</a>
+  </div>
+
+  {% if medications %}
+  <div class="med-grid">
+    {% for med in medications %}
+    <div class="med-card">
+      <div class="med-icon">💊</div>
+      <div class="med-info">
+        <h3 class="med-name">{{ med.name }}</h3>
+        <p class="med-dosage">{{ med.dosage }}</p>
+        <span class="med-freq">{{ med.frequency }}</span>
+        {% if med.notes %}
+        <p class="med-notes">{{ med.notes }}</p>
+        {% endif %}
+      </div>
+      <form method="POST" action="/medications/{{ med.id }}/delete">
+        <button type="submit" class="btn-delete" title="Remove">✕</button>
+      </form>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="empty-state">
+    <div class="empty-icon">💊</div>
+    <h2>No medications yet</h2>
+    <p>Add your first medication to get started.</p>
+    <a href="/medications/add" class="btn btn-primary">Add Medication</a>
+  </div>
+  {% endif %}
 </div>
 {% endblock %}
