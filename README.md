@@ -39,6 +39,7 @@ MedTrack is a full-stack medication tracking web application built to help users
 ---
 
 ## Project Structure
+```
 medtrack/
 ├── app/
 │   ├── routes/
@@ -62,8 +63,7 @@ medtrack/
 ├── requirements.txt
 ├── Procfile
 └── README.md
-
----
+```
 
 ## Installation
 
