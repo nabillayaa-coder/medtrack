@@ -5,11 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{% block title %}MedTrack{% endblock %}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/css/main.css" />
 </head>
 <body>
-  <main>
+  {% if user is defined and user %}
+  <nav class="navbar">
+    <a href="/dashboard" class="nav-logo">MED<span>TRACK</span></a>
+    <div class="nav-links">
+      <a href="/dashboard" class="nav-link">Dashboard</a>
+      <a href="/medications/add" class="nav-link nav-add">+ Add Med</a>
+      <a href="/logout" class="nav-link nav-logout">Logout</a>
+    </div>
+  </nav>
+  {% endif %}
+
+  <main class="main-content">
     {% block content %}{% endblock %}
   </main>
 </body>

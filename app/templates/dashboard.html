@@ -5,17 +5,17 @@
 <div class="dashboard">
   <div class="dashboard-header">
     <div>
-      <h1 class="page-title">Hello, <span class="highlight">{{ user.username }}</span> 👋</h1>
-      <p class="page-sub">Here are your active medications.</p>
+      <p class="page-label">OVERVIEW</p>
+      <h1 class="page-title">{{ user.username }}<span class="highlight">.</span></h1>
+      <p class="page-sub">{{ medications|length }} active medication{{ 's' if medications|length != 1 else '' }}</p>
     </div>
-    <a href="/medications/add" class="btn btn-primary">+ Add Medication</a>
   </div>
 
   {% if medications %}
   <div class="med-grid">
     {% for med in medications %}
     <div class="med-card">
-      <div class="med-icon">💊</div>
+      <div class="med-indicator"></div>
       <div class="med-info">
         <h3 class="med-name">{{ med.name }}</h3>
         <p class="med-dosage">{{ med.dosage }}</p>
@@ -25,17 +25,17 @@
         {% endif %}
       </div>
       <form method="POST" action="/medications/{{ med.id }}/delete">
-        <button type="submit" class="btn-delete" title="Remove">✕</button>
+        <button type="submit" class="btn-delete">REMOVE</button>
       </form>
     </div>
     {% endfor %}
   </div>
   {% else %}
   <div class="empty-state">
-    <div class="empty-icon">💊</div>
-    <h2>No medications yet</h2>
-    <p>Add your first medication to get started.</p>
-    <a href="/medications/add" class="btn btn-primary">Add Medication</a>
+    <p class="empty-label">No medications found</p>
+    <h2>Nothing here yet</h2>
+    <p>Add your first medication to start tracking.</p>
+    <a href="/medications/add" class="btn btn-primary">+ Add Medication</a>
   </div>
   {% endif %}
 </div>

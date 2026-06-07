@@ -5,8 +5,8 @@
 <div class="form-page">
   <div class="form-card">
     <a href="/dashboard" class="back-link">← Back</a>
-    <h1 class="page-title">Add Medication</h1>
-    <p class="page-sub">Fill in your medication details below.</p>
+    <h1 class="page-title">New Medication<span class="highlight">.</span></h1>
+    <p class="page-sub" style="margin-bottom:1.75rem">Fill in the details below.</p>
 
     <form method="POST" action="/medications/add" class="auth-form">
       <div class="field">
@@ -31,7 +31,7 @@
         </select>
       </div>
       <div class="field">
-        <label for="notes">Notes <span style="text-transform:none;font-weight:400;color:#6b6b80">(optional)</span></label>
+        <label for="notes">Notes <span style="text-transform:none;font-weight:400;color:#5a5a72">(optional)</span></label>
         <textarea id="notes" name="notes" placeholder="e.g. Take with food..." rows="3"></textarea>
       </div>
       <button type="submit" class="btn btn-primary btn-full">Save Medication</button>

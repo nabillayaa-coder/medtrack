@@ -5,8 +5,8 @@
 <div class="auth-wrapper">
   <div class="auth-card">
     <div class="auth-header">
-      <div class="auth-logo">💊</div>
-      <h1 class="auth-title">Create Account</h1>
+      <div class="auth-logo">+</div>
+      <h1 class="auth-title">Create account</h1>
       <p class="auth-subtitle">Start tracking your medications today.</p>
     </div>
 
@@ -14,7 +14,7 @@
     <div class="alert alert-error">{{ error }}</div>
     {% endif %}
 
-    <form method="POST" action="/register">
+    <form method="POST" action="/register" class="auth-form">
       <div class="field">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" placeholder="johndoe" required />
